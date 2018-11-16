@@ -11,8 +11,41 @@
   </head>
 
   <body>
-  	<p class="notice"><%= notice %></p>
-  	<p class="alert"><%= alert %></p>
+	<div class="ui menu">
+		  <a class="active item">
+		    RENT-OUT-LOUD
+		  </a>
+		  <a class="item">
+		    About Us
+		  </a>
+		  <a class="item">
+		    Products
+		  </a>
+		  <div class="right menu">
+		    <div class="item">
+		      <div class="ui icon input">
+		        <input type="text" placeholder="Search...">
+		        <i class="search link icon"></i>
+		      </div>
+		    </div>
+  			<% if !user_signed_in? %>
+			    <a class="ui item" href="/users/sign_up">
+			      Sign Up
+			    </a>
+			  <% else %>
+				  <a class="ui item" href="/users/sign_up">
+				    Profile
+				  </a>
+				  <a class="ui item" data-confirm="Are you sure?" data-method="delete" href="/users/sign_out">
+				    Logout
+				  </a>
+			  <% end %>
+		  </div>
+	</div>
+
+  	<p class="notice" style="display:none;"><%= notice %></p>
+  	<p class="alert" style="display:none;"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
