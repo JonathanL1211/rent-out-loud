@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 #ArticlesController is inheriting from a special class called ApplicationController
+  before_action :authenticate_user!
   def index
   end
 
