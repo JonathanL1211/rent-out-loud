@@ -7,45 +7,87 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css"></link>
+
+    <style>
+	    .mySlides {
+	    	display:none;
+	    	width: 100%;
+	    	height: 400px;
+	    	opacity: 0.7;
+	    }
+	    .w3-left, .w3-right, .w3-badge {cursor:pointer}
+	    .w3-badge {height:13px;width:13px;padding:0}
+    </style>
   </head>
 
   <body>
-	<div class="ui menu">
-		  <a class="active item">
-		    RENT-OUT-LOUD
-		  </a>
-		  <a class="item">
-		    About Us
-		  </a>
-		  <a class="item">
-		    Products
-		  </a>
-		  <div class="right menu">
-		    <div class="item">
-		      <div class="ui icon input">
-		        <input type="text" placeholder="Search...">
-		        <i class="search link icon"></i>
-		      </div>
-		    </div>
-  			<% if !user_signed_in? %>
-			    <a class="ui item" href="/users/sign_up">
-			      Sign Up
-			    </a>
-			  <% else %>
-				  <a class="ui item" href="/users/sign_up">
-				    Profile
-				  </a>
-				  <a class="ui item" data-confirm="Are you sure?" data-method="delete" href="/users/sign_out">
-				    Logout
-				  </a>
-			  <% end %>
-		  </div>
-	</div>
+		<div class="ui menu">
+			  <a class="active item">
+			    RENT-OUT-LOUD
+			  </a>
+			  <a class="item">
+			    About Us
+			  </a>
+			  <a class="item">
+			    Products
+			  </a>
+			  <div class="right menu">
+			    <div class="item">
+			      <div class="ui icon input">
+			        <input type="text" placeholder="Search...">
+			        <i class="search link icon"></i>
+			      </div>
+			    </div>
+	  			<% if !user_signed_in? %>
+				    <a class="ui item" href="/users/sign_up">
+				      Sign Up
+				    </a>
+				  <% else %>
+					  <a class="ui item" href="/users/sign_up">
+					    Profile
+					  </a>
+					  <a class="ui item" data-confirm="Are you sure?" data-method="delete" href="/users/sign_out">
+					    Logout
+					  </a>
+				  <% end %>
+			  </div>
+		</div>
 
   	<p class="notice" style="display:none;"><%= notice %></p>
   	<p class="alert" style="display:none;"><%= alert %></p>
 
     <%= yield %>
+
+    <script>
+	    var slideIndex = 1;
+	    showDivs(slideIndex);
+
+	    function plusDivs(n) {
+	      showDivs(slideIndex += n);
+	    }
+
+	    function currentDiv(n) {
+	      showDivs(slideIndex = n);
+	    }
+
+	    function showDivs(n) {
+	      var i;
+	      var x = document.getElementsByClassName("mySlides");
+	      var dots = document.getElementsByClassName("demo");
+	      if (n > x.length) {slideIndex = 1}
+	      if (n < 1) {slideIndex = x.length}
+	      for (i = 0; i < x.length; i++) {
+	         x[i].style.display = "none";
+	      }
+	      for (i = 0; i < dots.length; i++) {
+	         dots[i].className = dots[i].className.replace(" w3-white", "");
+	      }
+	      x[slideIndex-1].style.display = "block";
+	      dots[slideIndex-1].className += " w3-white";
+	    }
+    </script>
   </body>
 </html>
