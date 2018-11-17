@@ -66,8 +66,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #----------------------- Added Gems -----------------------------------------------
 gem 'devise'
 
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails'
 
 gem "jquery-slick-rails"
+
+gem 'carrierwave'
+gem 'cloudinary'
+
+gem 'bootstrap', '~> 4.1.3'
+
 
 

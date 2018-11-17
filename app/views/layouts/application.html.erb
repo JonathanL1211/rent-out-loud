@@ -8,90 +8,45 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css"></link>
-
-    <style>
-	    .mySlides {
-	    	display:none;
-	    	width: 100%;
-	    	height: 400px;
-	    	opacity: 0.7;
-	    }
-	    .w3-left, .w3-right, .w3-badge {cursor:pointer}
-	    .w3-badge {height:13px;width:13px;padding:0}
-    </style>
   </head>
 
   <body>
-		<div class="ui menu">
-			  <a class="active item" href="/">
-			  	<i class="chess king icon"></i>
-			  	RENT-OUT-LOUD
-			  </a>
-			  <a class="item">
-			    About Us
-			  </a>
-			  <a class="item">
-			    Products
-			  </a>
-			  <div class="right menu">
-			    <div class="item">
-			      <div class="ui icon input">
-			        <input type="text" placeholder="Search...">
-			        <i class="search link icon"></i>
-			      </div>
-			    </div>
-	  			<% if !user_signed_in? %>
-				    <a class="ui item" href="/users/sign_up">
-				      Sign Up
-				    </a>
-				    <a class="ui item" href="/users/sign_in">
-				      Sign In
-				    </a>
-				  <% else %>
-						<div class='item'>
-					    <%= link_to 'My Profile', user_path(current_user.id), class: 'profile'%>
-					  </div>
-						<div class='item'>
-					  	<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'profile' %>
-					  </div>
-				  <% end %>
-			  </div>
-		</div>
+  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  	  <a class="navbar-brand" href="/">RENT OUT LOUD</a>
+  	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  	    <ul class="navbar-nav mr-auto">
+  	      <li class="nav-item active">
+  	        <a class="nav-link" href="#">About Us </a>
+  	      </li>
+  	      <li class="nav-item">
+  	        <a class="nav-link" href="#">Product</a>
+  	      </li>
+  	      <% if !user_signed_in? %>
+  	      	<li class="nav-item">
+  	      	  <a class="nav-link" href="/users/sign_up">Sign Up</a>
+  	      	</li>
+  	      	<li>
+  	      		<a class="nav-link" href="/users/sign_in">Sign In</a>
+  	      	</li>
+  	      <% else %>
+  	      	<li>
+  	      		<%= link_to 'My Profile', user_path(current_user.id), class: 'nav-link'%>
+  	      	</li>
+  	      	<li>
+	  	      	<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'nav-link' %>
+	  	      </li>
+  	      <% end %>
+  	    </ul>
+
+  	    <form class="form-inline my-2 my-lg-0">
+  	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  	    </form>
+  	  </div>
+  	</nav>
 
   	<p class="notice" style="display:none;"><%= notice %></p>
   	<p class="alert" style="display:none;"><%= alert %></p>
-
     <%= yield %>
-
-    <script>
-	    var slideIndex = 1;
-	    showDivs(slideIndex);
-
-	    function plusDivs(n) {
-	      showDivs(slideIndex += n);
-	    }
-
-	    function currentDiv(n) {
-	      showDivs(slideIndex = n);
-	    }
-
-	    function showDivs(n) {
-	      var i;
-	      var x = document.getElementsByClassName("mySlides");
-	      var dots = document.getElementsByClassName("demo");
-	      if (n > x.length) {slideIndex = 1}
-	      if (n < 1) {slideIndex = x.length}
-	      for (i = 0; i < x.length; i++) {
-	         x[i].style.display = "none";
-	      }
-	      for (i = 0; i < dots.length; i++) {
-	         dots[i].className = dots[i].className.replace(" w3-white", "");
-	      }
-	      x[slideIndex-1].style.display = "block";
-	      dots[slideIndex-1].className += " w3-white";
-	    }
-    </script>
   </body>
 </html>

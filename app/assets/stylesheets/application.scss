@@ -14,11 +14,24 @@
  *= require_self
  */
 
-.menu{
-	height:60px;
+@import "bootstrap";
+
+.carousel-item{
+    height: 650px;
+}
+.carousel-item img{
+    height: 650px;
+    opacity: 0.8;
 }
 
-a.profile{
-	color: black;
-	color: inherit;
+.navbar{
+	height: 100px;
+}
+
+.nav-link{
+	font-size: 20px;
+}
+
+.navbar-brand{
+	font-size: 30px;
 }

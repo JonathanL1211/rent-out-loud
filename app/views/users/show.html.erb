@@ -1,1 +1,19 @@
-<h1> This is user show page</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 offset-md-1">
+			<h1 class="h1"> Profile </h1>
+
+				<h3> Name </h3>
+				<p> <%= @user.name %> </p>
+				<h3> Email </h3>
+				<p> <%= @user.email %> </p>
+				<h3> Contact Number </h3>
+				<p> <%= @user.contact_number %> </p>
+				<h3> Profile picture</h3>
+				<%= cl_image_tag(@user.profile_image, :width => 300, :height => 300) %>
+
+				<h3>Product Listing: </h3>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: jlau1292
+  api_key: '597865285275889'
+  api_secret: gT-casGUIHml0Cvhf66XHyUeRJo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: jlau1292
+  api_key: '597865285275889'
+  api_secret: gT-casGUIHml0Cvhf66XHyUeRJo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: jlau1292
+  api_key: '597865285275889'
+  api_secret: gT-casGUIHml0Cvhf66XHyUeRJo
+  enhance_image_tag: true
+  static_image_support: false
