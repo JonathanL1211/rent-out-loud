@@ -25,7 +25,7 @@
 
   <body>
 		<div class="ui menu">
-			  <a class="active item">
+			  <a class="active item" href="/">
 			  	<i class="chess king icon"></i>
 			  	RENT-OUT-LOUD
 			  </a>
@@ -46,13 +46,16 @@
 				    <a class="ui item" href="/users/sign_up">
 				      Sign Up
 				    </a>
+				    <a class="ui item" href="/users/sign_in">
+				      Sign In
+				    </a>
 				  <% else %>
-					  <a class="ui item" href="/users/sign_up">
-					    Profile
-					  </a>
-					  <a class="ui item" data-confirm="Are you sure?" data-method="delete" href="/users/sign_out">
-					    Logout
-					  </a>
+						<div class='item'>
+					    <%= link_to 'My Profile', user_path(current_user.id), class: 'profile'%>
+					  </div>
+						<div class='item'>
+					  	<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'profile' %>
+					  </div>
 				  <% end %>
 			  </div>
 		</div>

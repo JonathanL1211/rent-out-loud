@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
-h1{
-	font-size: 20px;
+
+.menu{
+	height:60px;
+}
+
+a.profile{
+	color: black;
+	color: inherit;
 }
