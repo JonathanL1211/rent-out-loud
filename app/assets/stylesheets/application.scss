@@ -35,3 +35,15 @@
 .navbar-brand{
 	font-size: 30px;
 }
+
+.card{
+	display: inline-block;
+	width: 18rem;
+	margin: 10% 5%;
+}
+
+.card-img-top{
+	width: 100%;
+  height: 15vw;
+  object-fit: contain;
+}
