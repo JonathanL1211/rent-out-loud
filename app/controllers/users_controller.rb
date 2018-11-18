@@ -2,15 +2,16 @@ class UsersController < ApplicationController
 #ArticlesController is inheriting from a special class called ApplicationController
   before_action :authenticate_user!
   def create
-    uploaded_file = params[:user][:profile_image].path
-    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+        uploaded_file = params[:user][:profile_image].path
+        cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
 
-    params[:user][:profile_image] = cloudnary_file['public_id']
+        params[:user][:profile_image] = cloudnary_file['public_id']
   end
 
   def show
     if current_user
       @user = User.find(params[:id])
+      @product = Product.where(user_id: params[:id])
     end
   end
 

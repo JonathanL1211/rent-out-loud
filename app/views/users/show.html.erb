@@ -1,19 +1,36 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-6 offset-md-1">
-			<h1 class="h1"> Profile </h1>
-
-				<h3> Name </h3>
-				<p> <%= @user.name %> </p>
-				<h3> Email </h3>
-				<p> <%= @user.email %> </p>
-				<h3> Contact Number </h3>
-				<p> <%= @user.contact_number %> </p>
-				<h3> Profile picture</h3>
-				<%= cl_image_tag(@user.profile_image, :width => 300, :height => 300) %>
-
-				<h3>Product Listing: </h3>
+		<div class="col-md-6 offset-md-1 mt-4">
+			<h1 style="font-size: 40px"> Profile </h1>
+			<hr/>
+			<h3 style="font-size: 30px;"> Name </h3>
+			<p style="font-size: 20px;"> <%= @user.name %> </p>
+			<%= cl_image_tag(@user.profile_image, :width => 300, :height => 300) %>
+			<h3 style="font-size: 30px;"> Email </h3>
+			<p style="font-size: 20px;"> <%= @user.email %> </p>
+			<h3 style="font-size: 30px;"> Contact Number </h3>
+			<p style="font-size: 20px;"> <%= @user.contact_number %> </p>
 		</div>
 	</div>
 </div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 offset-md-1">
+			<h1 style="font-size: 40px;">My Products:
+					<span><%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %></span>
+			</h1>
+			<h2>
+				<% @product.each do |product| %>
+					<%= product.name%>
+					<br/>
+					<%= cl_image_tag(product.product_image, :width => 300, :height => 300) %>
+				<% end %>
+			</h2>
+		</div>
+	</div>
+
+</div>
+
+<br/>
 

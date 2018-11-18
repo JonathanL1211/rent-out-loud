@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-1 mt-4">
+			<h1> Create new product</h1>
+			<%= form_with scope: :product, url: products_path(@user), local: true do |form| %>
+				<p>
+					<%= form.label :name %><br>
+					<%= form.text_field :name %>
+				</p>
+
+				<p>
+					<%= form.label :product_image %><br>
+					<%= form.file_field :product_image%>
+				</p>
+				<p>
+					<%= form.label :description %><br>
+					<%= form.text_area :description %>
+				</p>
+				<p>
+					<%= form.label :price %><br>
+					<%= form.number_field :price %>
+				</p>
+				<p>
+					<%= form.label :rental_days %><br>
+					<%= form.number_field :rental_days %>
+				</p>
+				<p>
+					<%= form.label :meetup_date %><br>
+					<%= form.date_field :meetup_date %>
+				</p>
+				<p>
+					<%= form.label :meetup_location %><br>
+					<%= form.text_field :meetup_location %>
+				</p>
+				<p>
+					<%= form.label :availability_status %><br>
+					<%= form.select :availability_status, ['Have Stock', 'Out of Stock']%>
+				</p>
+
+				<p>
+					<%= form.hidden_field :user_id, value:@user.id %>
+					<%= form.submit :class => "btn btn-info"%>
+				</p>
+			<% end %>
+		</div>
+	</div>
+</div>
