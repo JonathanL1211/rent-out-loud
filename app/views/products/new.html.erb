@@ -4,37 +4,37 @@
 			<h1> Create new product</h1>
 			<%= form_with scope: :product, url: products_path(@user), local: true do |form| %>
 				<p>
-					<%= form.label :name %><br>
-					<%= form.text_field :name %>
+					<%= form.label :name, class: 'h3'%><br>
+					<%= form.text_field :name, class: 'form-control'%>
 				</p>
 
 				<p>
-					<%= form.label :product_image %><br>
-					<%= form.file_field :product_image%>
+					<%= form.label :product_image, class: 'h3' %><br>
+					<%= form.file_field :product_image, class: 'form-control'%>
 				</p>
 				<p>
-					<%= form.label :description %><br>
-					<%= form.text_area :description %>
+					<%= form.label :description, class: 'h3' %><br>
+					<%= form.text_area :description, class: 'form-control' %>
 				</p>
 				<p>
-					<%= form.label :price %><br>
-					<%= form.number_field :price %>
+					<%= form.label :price, class: 'h3' %><br>
+					<%= form.number_field :price, class: 'form-control' %>
 				</p>
 				<p>
-					<%= form.label :rental_days %><br>
-					<%= form.number_field :rental_days %>
+					<%= form.label :rental_days, class: 'h3' %><br>
+					<%= form.number_field :rental_days, class: 'form-control' %>
 				</p>
 				<p>
-					<%= form.label :meetup_date %><br>
-					<%= form.date_field :meetup_date %>
+					<%= form.label :meetup_date, class: 'h3' %><br>
+					<%= form.date_field :meetup_date, class: 'form-control' %>
 				</p>
 				<p>
-					<%= form.label :meetup_location %><br>
-					<%= form.text_field :meetup_location %>
+					<%= form.label :meetup_location, class: 'h3' %><br>
+					<%= form.text_field :meetup_location, class: 'form-control' %>
 				</p>
 				<p>
-					<%= form.label :availability_status %><br>
-					<%= form.select :availability_status, ['Have Stock', 'Out of Stock']%>
+					<%= form.label :availability_status, class: 'h3' %><br>
+					<%= form.select :availability_status, ['Have Stock', 'Out of Stock'], class: 'form-control'%>
 				</p>
 
 				<p>

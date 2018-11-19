@@ -32,7 +32,8 @@
 				  					<div class="card-body">
 				  					    <h5 class="card-title"><%= product.name%></h5>
 										    <p class="card-text"><%= truncate(product.description, :length => 100, :separator => ' ') %></p>
-										    <a href="#" class="btn btn-primary">Go somewhere</a>
+										    <%= link_to 'Edit' , edit_product_path(product), class: "btn btn-primary" %>
+										    <%= link_to 'Delete' , product_path, class: "btn btn-primary" %>
 										</div>
 								</div>
 						<br/>

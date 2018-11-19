@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -30,6 +31,15 @@ class ProductsController < ApplicationController
   end
 
   def update
+    uploaded_file = params[:product][:product_image].path
+    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+    params[:product][:product_image] = cloudnary_file['public_id']
+
+    @user = User.find(current_user.id)
+    @product = Product.find(params[:id])
+    @product.update(products_params)
+    redirect_to user_path(@user.id)
   end
 
   def destroy
@@ -37,6 +47,6 @@ class ProductsController < ApplicationController
 
   private
   def products_params
-    params.require(:product).permit(:name, :description, :product_image, :price, :rental_days, :meetup_date, :meetup_location, :availability_status, :user_id)
+    params.require(:product).permit(:name, :description, :product_image, :price, :rental_days, :meetup_date, :meetup_location, :availability_status, :user_id, :order_id => [])
   end
 end

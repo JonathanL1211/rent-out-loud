@@ -13,6 +13,12 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(orders_params)
+    if @order.save
+      redirect_to root_path
+    else
+      render plain: 'This is not a create page'
+    end
   end
 
   def update
@@ -20,4 +26,10 @@ class OrdersController < ApplicationController
 
   def destroy
   end
+
+  private
+  def orders_params
+    params.require(:order).permit(:user_id, :product_id => [])
+  end
+
 end
