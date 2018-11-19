@@ -43,6 +43,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @user = User.find(current_user.id)
+
+    @product.destroy
+    redirect_to user_path(@user.id)
   end
 
   private
