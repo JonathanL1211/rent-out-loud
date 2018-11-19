@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   resources :products do
     resources :sessions, only: [:index]
   end
+
+  resources :products do
+    member do
+      put "like", to: "products#upvote"
+      put "dislike", to: "products#downvote"
+    end
+  end
   # resources :cart, only: [:show, :index, :create]
   root 'home#index'
 end

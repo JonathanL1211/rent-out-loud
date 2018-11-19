@@ -75,5 +75,7 @@ gem 'cloudinary'
 
 gem 'bootstrap', '~> 4.1.3'
 
+gem 'acts_as_votable', '~> 0.12.0'
+
 
 

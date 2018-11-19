@@ -1,6 +1,18 @@
 class ProductsController < ApplicationController
 #ArticlesController is inheriting from a special class called ApplicationController
   before_action :authenticate_user!
+  def upvote
+      @product = Product.find(params[:id])
+      @product.upvote_by current_user
+      redirect_to products_path
+  end
+
+  def downvote
+    @product = Product.find(params[:id])
+    @product.downvote_by current_user
+    redirect_to products_path
+  end
+
   def index
     @products = Product.all
   end
