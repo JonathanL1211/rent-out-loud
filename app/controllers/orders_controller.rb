@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+
   end
 
   def edit
@@ -14,6 +15,9 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(orders_params)
+    @product = Product.find(params[:id])
+
+    @order.products << @product
     if @order.save
       redirect_to root_path
     else
@@ -29,7 +33,7 @@ class OrdersController < ApplicationController
 
   private
   def orders_params
-    params.require(:order).permit(:user_id, :rental_days, :meetup_date :product_id => [])
+    params.require(:order).permit(:user_id, :rental_days, :meetup_date, :product_id => [4])
   end
 
 end
