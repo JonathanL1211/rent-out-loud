@@ -5,7 +5,7 @@
 			<hr/>
 			<h3 style="font-size: 30px;"> Name </h3>
 			<p style="font-size: 20px;"> <%= @user.name %> </p>
-			<%= cl_image_tag(@user.profile_image, :width => 300, :height => 300) %>
+			<%= cl_image_tag(@user.profile_image, :width => 300, :height => 300, class: 'profile') %>
 			<h3 style="font-size: 30px;"> Email </h3>
 			<p style="font-size: 20px;"> <%= @user.email %> </p>
 			<h3 style="font-size: 30px;"> Contact Number </h3>

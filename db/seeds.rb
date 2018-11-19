@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user1 = User.create!(email: "me@home.com", password: "watching the telly", name: "ME", contact_number: 90000010)
-user2 = User.create!(email: "ben@gmail.com", password: "teletubbies", name: "Ben Cho", contact_number: 90020280)
+user1 = User.create!(email: "me@home.com", password: "123456", name: "ME", contact_number: 90000010)
+user2 = User.create!(email: "ben@gmail.com", password: "111111", name: "Ben Cho", contact_number: 90020280)
 
-product1 = Product.create(name: "organ attack", description: "a game where you destroy your opponent's organs", price: 5.50, rental_days: 7, meetup_location: "Singapore, Orchard Road", availability_status: true, user_id: 1)
+product1 = Product.create(name: "organ attack", description: "a game where you destroy your opponent's organs", price: 5.50, meetup_location: "Singapore, Orchard Road", availability_status: true, user_id: 1)
+
+order1 = Order.create(user_id: 1, rental_days: 7)
 
