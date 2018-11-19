@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-5 offset-sm-1 mt-4" style="border: 1px solid black" >
+			<h1 style="font-size: 40px"> Product #<span class="text-success"><%=@product.id%></span></h1>
+			<h3 style="font-size: 30px"> Product name: </h3>
+			<p class="text-success"><%=@product.name %></p>
+			<%= cl_image_tag(@product.product_image, class: "img-fluid showPic") %>
+			<h3 style="font-size: 30px"> Product Description: </h3>
+			<p style="font-size: 20px"> <%=@product.description%></p>
+		</div>
+		<div class="col-sm-5 mt-4 ml-3" style="border: 1px solid black" >
+			<h1>Price:</h1>
+			<p style="font-size: 20px"> <%=@product.price %></p>
+			<h1>Preferred Location for Meetup: </h1>
+			<p style="font-size: 20px"> <%= @product.meetup_location %>
+			<h1>Availability: </h1>
+			<% if @product.availability_status == true %>
+				<p style="font-size: 20px">Current have stock </p>
+			<% else %>
+				<p style="font-size: 20px">Out of stock</p>
+			<%end%>
+		</div>
+	</div>
+</div>

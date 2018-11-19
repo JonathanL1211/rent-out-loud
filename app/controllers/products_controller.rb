@@ -2,9 +2,11 @@ class ProductsController < ApplicationController
 #ArticlesController is inheriting from a special class called ApplicationController
   before_action :authenticate_user!
   def index
+    @products = Product.all
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -52,6 +54,6 @@ class ProductsController < ApplicationController
 
   private
   def products_params
-    params.require(:product).permit(:name, :description, :product_image, :price, :rental_days, :meetup_date, :meetup_location, :availability_status, :user_id, :order_id => [])
+    params.require(:product).permit(:name, :description, :product_image, :price, :meetup_location, :availability_status, :user_id, :order_id => [])
   end
 end

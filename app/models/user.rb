@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :products
   has_many :reviews
   has_many :orders
+
+  validates_presence_of :name
 end
