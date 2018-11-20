@@ -8,6 +8,6 @@ class SessionsController < ApplicationController
     puts 'Here is the session itself:'
     pp user_session
     pp session
-    redirect_to root_path
+    redirect_to products_path
   end
 end
