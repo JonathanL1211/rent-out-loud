@@ -1,1 +1,21 @@
-<h1> Form for order</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-1 mt-4">
+			<h1> Form for order</h1>
+			<%= form_with scope: :order, url: orders_path, local: true do |form| %>
+				<p>
+					<%= form.label :rental_days, class: 'h3'%><br>
+					<%= form.number_field :rental_days, class: 'form-control'%>
+				</p>
+				<p>
+					<%= form.label :meetup_date, class: 'h3'%><br>
+					<%= form.date_field :meetup_date, class: 'form-control'%>
+				</p>
+				<p>
+					<%= form.hidden_field :user_id, value: current_user.id %>
+					<%= form.submit :class => "btn btn-info"%>
+				</p>
+			<% end %>
+		</div>
+	</div>
+</div>

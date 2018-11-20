@@ -15,9 +15,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(orders_params)
-    @product = Product.find(params[:id])
 
-    @order.products << @product
     if @order.save
       redirect_to root_path
     else
