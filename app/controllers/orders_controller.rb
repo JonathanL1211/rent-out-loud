@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 #ArticlesController is inheriting from a special class called ApplicationController
   def index
+    @orders = Order.where(user_id: current_user.id)
   end
 
   def show
@@ -20,6 +21,7 @@ class OrdersController < ApplicationController
     @order.individual_cost = ((@order.rental_days / 7) * @product.price).round(2)
     @order.save
     if @order.save
+      @order.products << @product
       user_session["product"].delete(@product.id)
       redirect_to root_path
     else
