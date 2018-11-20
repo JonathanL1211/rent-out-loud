@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-5 offset-sm-1 mt-4">
+			<h1>This is cart order view</h1>
+			<% if current_user %>
+				<table class="table">
+			  	<thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">Name</th>
+				      <th scope="col">Price</th>
+				      <th scope="col">img</th>
+				    </tr>
+			  	</thead>
+			  	<tbody>
+			  		<% @num = 0 %>
+						<% @productSession.each do |session| %>
+							<% @num += 1 %>
+							<tr>
+					      <th scope="row"><%= @num%></th>
+					      <td><%= session.name%></td>
+					      <td><%= session.price%></td>
+					      <td><%= session.id%></td>
+					    </tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

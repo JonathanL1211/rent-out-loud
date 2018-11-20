@@ -16,6 +16,10 @@ Rails.application.routes.draw do
       put "dislike", to: "products#downvote"
     end
   end
+
+  resources :orders
+
+  get '/cart/:id', to: 'cart#show', as: 'cart'
   # resources :cart, only: [:show, :index, :create]
   root 'home#index'
 end
