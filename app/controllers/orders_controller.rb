@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
 
   private
   def orders_params
-    params.require(:order).permit(:user_id, :rental_days, :meetup_date, :end_date, :individual_cost, :product_id)
+    params.require(:order).permit(:user_id, :rental_days, :meetup_date, :end_date, :individual_cost, :product_id => [])
   end
 
 end
