@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
     params[:product][:product_image] = cloudnary_file['public_id']
     @product = Product.new(products_params)
-
+    @product.save!
     if @product.save
       redirect_to root_path
     else
@@ -67,6 +67,6 @@ class ProductsController < ApplicationController
 
   private
   def products_params
-    params.require(:product).permit(:name, :description, :product_image, :price, :meetup_location, :availability_status, :user_id, :order_id => [])
+    params.require(:product).permit(:name, :description, :product_image, :price, :meetup_location, :availability_status, :user_id, :product_id => [])
   end
 end
