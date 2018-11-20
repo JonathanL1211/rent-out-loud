@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-6 offset-md-1 mt-4">
 			<h1> Form for order</h1>
-			<%= form_with scope: :order, url: orders_path, local: true do |form| %>
+			<%= form_with scope: :order, url: product_orders_path, local: true do |form| %>
 				<p>
 					<%= form.label :meetup_date, class: 'h3'%><br>
 					<%= form.date_field :meetup_date, class: 'form-control'%>
@@ -13,6 +13,7 @@
 				</p>
 				<p>
 					<%= form.hidden_field :user_id, value: current_user.id %>
+					<%= form.hidden_field :product_id, value: @product.id %>
 					<%= form.submit :class => "btn btn-info"%>
 				</p>
 			<% end %>

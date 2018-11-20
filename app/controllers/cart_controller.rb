@@ -9,11 +9,9 @@ class CartController < ApplicationController
       else
         @sessionData.each do |us|
           @productSession ||= []
-          @userSession ||= []
           @prod = Product.find(us)
           @user = User.find(@prod.user_id)
           @productSession = @productSession << @prod
-          @userSession = @userSession << @user
         end
       end
   end

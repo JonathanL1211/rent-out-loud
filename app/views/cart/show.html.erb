@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-5 offset-sm-1 mt-4">
+		<div class="col-sm-10 offset-sm-1 mt-4">
 			<h1>Cart Items</h1>
 			<% if current_user %>
 				<table class="table">
@@ -14,20 +14,18 @@
 			  	</thead>
 			  	<tbody>
 			  		<% @num = 0 %>
-						<% @productSession.each do |product| %>
-							<% @userSession.each do |supplier| %>
+							<% @productSession.each do |product| %>
 								<% @num += 1 %>
 								<tr>
 						      <th scope="row"><%= @num%></th>
 						      <td><%= product.name%></td>
 						      <td><%= product.price%></td>
-						      <td><%= supplier.name%></td>
+						      <td><%= @user.name %></td>
+									<td><%= link_to 'Checkout', new_product_order_path(product.id), class: "btn btn-primary" %></td>
 						    </tr>
-						   <% end %>
-						<% end %>
+							<% end %>
 					</tbody>
 				</table>
-				<%= link_to 'Checkout Now', new_order_path, class: "btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>
