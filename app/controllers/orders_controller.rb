@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     @order.individual_cost = ((@order.rental_days / 7) * @product.price).round(2)
     @order.save
     if @order.save
+      user_session["product"].delete(@product.id)
       redirect_to root_path
     else
       render plain: 'This is not a create page'
@@ -34,7 +35,7 @@ class OrdersController < ApplicationController
 
   private
   def orders_params
-    params.require(:order).permit(:user_id, :rental_days, :meetup_date, :end_date, :individual_cost, :product_id => [])
+    params.require(:order).permit(:user_id, :rental_days, :meetup_date, :end_date, :individual_cost, :product_id)
   end
 
 end

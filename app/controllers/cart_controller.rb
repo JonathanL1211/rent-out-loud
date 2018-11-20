@@ -4,6 +4,7 @@ class CartController < ApplicationController
       @sessionData = user_session["product"]
       puts 'type of session data'
       puts @sessionData.is_a?(Array)
+      puts @sessionData
       if @sessionData.nil?
         render 'show_without_item'
       else
