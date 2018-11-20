@@ -7,9 +7,13 @@ class CartController < ApplicationController
       if @sessionData.nil?
         render 'show_without_item'
       else
-        user_session["product"].each do |us|
+        @sessionData.each do |us|
           @productSession ||= []
-          @productSession = @productSession << Product.find(us)
+          @userSession ||= []
+          @prod = Product.find(us)
+          @user = User.find(@prod.user_id)
+          @productSession = @productSession << @prod
+          @userSession = @userSession << @user
         end
       end
   end
