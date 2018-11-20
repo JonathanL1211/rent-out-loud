@@ -1,20 +1,24 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-10 offset-sm-1 mt-4">
-			<h1> This is your orders</h1>
-			<% @orders.each do |order|%>
-				<% order.products.each do |op| %>
-					<h3> Name of product: </h3>
-					<p class="text-primary"><%= op.name %></p>
-					<%= cl_image_tag(op.product_image, class: "img-fluid showPic") %>
-					<h3> Price of Product: </h3>
-					<p class="text-primary"><%= op.price %></p>
-					<h3> Number of renting days: </h3>
-					<p class="text-primary"><%= order.rental_days %></p>
-					<h3> Total Price: </h3>
-					<p class="text-primary"><%= order.individual_cost %></p>
-					<%= link_to 'Pay', root_path, class: 'btn btn-primary' %>
-					<hr/>
+			<% if @orders.blank? %>
+				<h1>No order was made</h1>
+			<% else %>
+				<h1> This is your orders</h1>
+				<% @orders.each do |order|%>
+					<% order.products.each do |op| %>
+						<h3> Name of product: </h3>
+						<p class="text-primary"><%= op.name %></p>
+						<%= cl_image_tag(op.product_image, class: "img-fluid showPic") %>
+						<h3> Price of Product: </h3>
+						<p class="text-primary"><%= op.price %></p>
+						<h3> Number of renting days: </h3>
+						<p class="text-primary"><%= order.rental_days %></p>
+						<h3> Total Price: </h3>
+						<p class="text-primary"><%= order.individual_cost %></p>
+						<%= link_to 'Pay', root_path, class: 'btn btn-primary' %>
+						<hr/>
+					<% end %>
 				<% end %>
 			<% end %>
 		</div>
