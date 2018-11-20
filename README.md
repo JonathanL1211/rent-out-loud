@@ -2,8 +2,8 @@
 
 Welcome to Rent Out Loud! 
 
-This is a rental store for board games that allows user to upload their board game for rental.
-Rental price is calculated daily 
+This is a rental store project for board games that allows user to upload their board game for rental.
+Rental price is calculated weekly, with minimum renting days of 7 (1 week). 
 
 Things supplier(someone who wants to rent out their board game) can do:
 1. Create a profile with us
