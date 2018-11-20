@@ -22,11 +22,15 @@
 						<p class="text-danger" style="font-size: 20px">Out of stock</p>
 				<%end%>
 				<% if @product.user_id != current_user.id %>
+					<% if @product.availability_status === true %>
 			    	<%= link_to 'Cart' , product_sessions_path(@product), class: "btn btn-primary" %>
 			    	<%= link_to like_product_path(@product), method: :put do %>
 			    			Upvote
 			    			<%= @product.get_upvotes.size %>
 			    	<% end %>
+			    <% else %>
+			    	<p>There is currently no stock available! Please check in later! </p>
+			    <% end %>
 				<% else %>
 			    	<%= link_to 'Edit' , edit_product_path(@product), class: "btn btn-primary" %>
 			    	<%= link_to 'Delete' , product_path(@product), method: :delete,
