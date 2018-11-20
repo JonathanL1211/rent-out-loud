@@ -77,5 +77,7 @@ gem 'bootstrap', '~> 4.1.3'
 
 gem 'acts_as_votable', '~> 0.12.0'
 
+gem 'activerecord-session_store'
+
 
 
