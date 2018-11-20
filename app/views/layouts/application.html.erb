@@ -18,9 +18,6 @@
   	      <li class="nav-item active">
   	        <a class="nav-link" href="#">About Us </a>
   	      </li>
-  	      <li class="nav-item">
-  	        <a class="nav-link" href="#">My Orders</a>
-  	      </li>
   	      <% if !user_signed_in? %>
   	      	<li class="nav-item">
   	      	  <a class="nav-link" href="/users/sign_up">Sign Up</a>
@@ -29,6 +26,9 @@
   	      		<a class="nav-link" href="/users/sign_in">Sign In</a>
   	      	</li>
   	      <% else %>
+  	      	<li class="nav-item">
+  	      		<%= link_to 'My Orders', cart_path(current_user.id), class: 'nav-link'%>
+  	      	</li>
   	      	<li>
   	      		<%= link_to 'My Profile', user_path(current_user.id), class: 'nav-link'%>
   	      	</li>

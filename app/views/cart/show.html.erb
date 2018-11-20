@@ -1,0 +1,8 @@
+<h1>This is cart order view</h1>
+<% if current_user %>
+	<% @productSession.each do |session| %>
+		<ul>
+				<li><%= session.name %></li>
+		</ul>
+	<% end %>
+<% end %>
