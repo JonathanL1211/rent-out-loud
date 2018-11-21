@@ -7,7 +7,7 @@ class OrderMailer < ApplicationMailer
   #
   def new_order(product)
     @product = product
-    @user = User.find(6)
+    @user = User.find(9)
 
     mail to: @user.email,
          subject: "Email confirmation for orders"
