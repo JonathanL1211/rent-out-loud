@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @order = Order.new(orders_params)
     @order.rental_days = (@order.end_date - @order.meetup_date).to_i
-    @order.individual_cost = ((@order.rental_days / 7) * @product.price).round(2)
+    @order.individual_cost = ((@order.rental_days.to_f / 7) * @product.price).round(2)
     @order.save
 
     # OrderMailer.new_order(@product).deliver_now

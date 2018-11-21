@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 offset-md-1 mt-4">
-			<h1 style="font-size: 40px"> Form for order</h1>
+			<h1 class="text-secondary" style="font-size: 40px"> Form for order</h1>
 			<%= form_with scope: :order, url: product_orders_path, local: true do |form| %>
 				<p>
 					<%= form.label :meetup_date, class: 'h3'%><br>
