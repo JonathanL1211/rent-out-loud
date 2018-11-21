@@ -60,9 +60,12 @@ h1{
 	height: auto;
 }
 
-.navbar-collapse{
-	visibility: visible;
-	z-index: 1000;
+@media (max-width: 992px) {
+	.navbar-collapse{
+		visibility: visible;
+		z-index: 1000;
+		background-color: blue;
+	}
 }
 
 
