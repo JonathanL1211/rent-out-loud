@@ -28,4 +28,12 @@ class CartController < ApplicationController
       end
   end
 
+  def destroy
+    @product = Product.find(params[:product_id])
+    user_session["product"].delete(@product.id)
+    redirect_to orders_path
+
+    #views for destroy at the delete button of show.html.erb
+  end
+
 end
