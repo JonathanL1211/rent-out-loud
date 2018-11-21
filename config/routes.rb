@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :orders
   end
   resources :products do
-    resources :sessions, only: [:index]
+    resources :cart
   end
 
   resources :products do

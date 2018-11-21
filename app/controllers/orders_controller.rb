@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     if @order.save
       @order.products << @product
       user_session["product"].delete(@product.id)
-      redirect_to root_path
+      redirect_to orders_path
     else
       render plain: 'This is not a create page'
     end

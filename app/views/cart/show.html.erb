@@ -14,16 +14,20 @@
 			  	</thead>
 			  	<tbody>
 			  		<% @num = 0 %>
+			  		<% if @productSession.nil? %>
+			  			<h4 class="text-danger"> Currently nothing is in your cart</h4>
+			  		<% else %>
 							<% @productSession.each do |product| %>
 									<% @num += 1 %>
 										<tr>
 								      <th scope="row"><%= @num%></th>
 								      <td><%= product.name%></td>
 								      <td><%= product.price%></td>
-							      	<td><%= @user.name %></td>
+							      	<td><%= product.user.name %></td>
 											<td><%= link_to 'Checkout', new_product_order_path(product.id), class: "btn btn-primary" %></td>
 							    	</tr>
 							<% end %>
+						<% end %>
 					</tbody>
 				</table>
 			<% end %>

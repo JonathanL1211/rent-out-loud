@@ -23,7 +23,7 @@
 				<%end%>
 				<% if @product.user_id != current_user.id %>
 					<% if @product.availability_status === true %>
-			    	<%= link_to 'Cart' , product_sessions_path(@product), class: "btn btn-primary" %>
+			    	<%= link_to 'Cart' , product_cart_index_path(@product), class: "btn btn-primary" %>
 			    	<%= link_to like_product_path(@product), method: :put do %>
 			    			Upvote
 			    			<%= @product.get_upvotes.size %>
