@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="col-sm-1 mt-4">
+	<div class="col-sm-3 mt-4">
   		<h1 style="font-size: 40px"> Products </h1>
   		<hr/>
   </div>
@@ -12,7 +12,7 @@
 								  <hr/>
 				  					<div class="card-body">
 				  							<%= link_to product.name, product_path(product), class: "card-title text-info h3" %>
-										    <p class="card-text"><%= truncate(product.description, :length => 100, :separator => ' ') %></p>
+										    <p class="card-text"><%= truncate(product.description, :length => 100, :separator => ' ') { link_to "read more", product_path(product.id) } %></p>
 										    <% if product.user_id != current_user.id %>
 										    		<p class="font-italic font-weight-bold">Check out the product by clicking on it's name </p>
 										    <% else %>

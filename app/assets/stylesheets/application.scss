@@ -51,13 +51,17 @@ h1{
 
 .card-img-top{
 	width: 100%;
-  height: 14vw;
+  height: auto;
   object-fit: contain;
 }
 
 .showPic{
 	width: 35%;
 	height: auto;
+}
+
+.product-details{
+	padding: 3vw;
 }
 
 @media (max-width: 992px) {

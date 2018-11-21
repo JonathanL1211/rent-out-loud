@@ -1,21 +1,20 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-5 offset-sm-1 mt-4" style="border: 1px solid black" >
-				<h1 style="font-size: 50px"> Product name: </h1>
-				<p class="text-primary" style="font-size: 30px"><%=@product.name %></p>
+		<div class="col-sm-8 mt-4" >
+				<h1 style="font-size: 40px"> Product: <%=@product.name %></h1>
 				<%= cl_image_tag(@product.product_image, class: "img-fluid showPic") %>
-				<h3 style="font-size: 40px"> Product Description: </h3>
-				<p style="font-size: 30px"> <%=@product.description%></p>
+				<h3> Product Description: </h3>
+				<p> <%=@product.description%></p>
 		</div>
 
-		<div class="col-sm-5 mt-4 ml-3" style="border: 1px solid black" >
-				<h1>Supplier's name:</h1>
-				<p style="font-size: 20px"> <%=@user.name %></p>
-				<h1>Price per week:</h1>
-				<p style="font-size: 20px"> <%=@product.price %></p>
-				<h1>Preferred Location for Meetup: </h1>
-				<p style="font-size: 20px"> <%= @product.meetup_location %>
-				<h1>Availability: </h1>
+		<div class="col-sm-3 mt-4 product-details" style="border: 1px solid black" >
+				<h3 style="font-size: 30px">Supplier's name:</h1>
+				<p> <%=@user.name %></p>
+				<h3 style="font-size: 30px">Price per week:</h1>
+				<p> <%=@product.price %></p>
+				<h3 style="font-size: 30px">Preferred Location for Meetup: </h1>
+				<p> <%= @product.meetup_location %>
+				<h3 style="font-size: 30px">Availability: </h1>
 				<% if @product.availability_status == true %>
 						<p class="text-success" style="font-size: 20px">Current have stock </p>
 				<% else %>
@@ -23,25 +22,26 @@
 				<%end%>
 				<% if @product.user_id != current_user.id %>
 					<% if @product.availability_status === true %>
-			    	<%= link_to 'Cart' , product_cart_index_path(@product), class: "btn btn-primary" %>
-			    	<%= link_to like_product_path(@product), method: :put do %>
-			    			Upvote
+			    	<%= link_to '<i class="fas fa-cart-plus"></i> Cart'.html_safe, product_cart_index_path(@product), class: "btn btn-primary" %>
+			    	<%= link_to like_product_path(@product), method: :put, class: "btn btn-primary" do %>
+			    			<i class="fas fa-thumbs-up"></i>
 			    			<%= @product.get_upvotes.size %>
 			    	<% end %>
 			    <% else %>
 			    	<p>There is currently no stock available! Please check in later! </p>
 			    <% end %>
 				<% else %>
-			    	<%= link_to 'Edit' , edit_product_path(@product), class: "btn btn-primary" %>
+			    	<%= link_to 'Edit' , edit_product_path(@product), class: "btn btn-primary btn-xs" %>
 			    	<%= link_to 'Delete' , product_path(@product), method: :delete,
-data: { confirm: 'Are you sure you want to delete this?' }, class: "btn btn-primary" %>
+data: { confirm: 'Are you sure you want to delete this?' }, class: "btn btn-primary btn-xs" %>
 				<% end %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-5 offset-sm-1 mt-4">
-			<h1>Comments</h1>
+		<div class="col-sm-8 mt-4" >
+			<h1 style="font-size: 40px">Comments</h1>
 			<%= link_to 'View all comments', product_comments_path(@product), class: "btn btn-primary" %>
+			<p></p>
 		</div>
 	</div>
 </div>

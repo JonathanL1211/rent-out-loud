@@ -1,23 +1,20 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-10 offset-sm-1 mt-4">
+		<div class="col-sm-8 mt-4">
 			<% if @orders.blank? %>
 				<h1>No order was made</h1>
 			<% else %>
-				<h1> This is your orders</h1>
+				<h1 style="font-size: 40px"> Your orders: </h1>
+				<hr/>
 				<% @orders.each do |order|%>
 					<% order.products.each do |op| %>
-						<h3> Name of product: </h3>
-						<p class="text-primary"><%= op.name %></p>
+						<h3> Name: <small class="text-info"> <%= op.name %></small> </h3>
 						<%= cl_image_tag(op.product_image, class: "img-fluid showPic") %>
-						<h3> Price of Product: </h3>
-						<p class="text-primary"><%= op.price %></p>
-						<h3> Number of renting days: </h3>
-						<p class="text-primary"><%= order.rental_days %></p>
-						<h3> Total Price: </h3>
-						<p class="text-primary"><%= order.individual_cost %></p>
-						<%= link_to 'Pay', root_path, class: 'btn btn-primary' %>
-						<%= link_to 'Delete order', order_path(order.id), method: :delete, data: { confirm: 'Are you sure you want to delete this order?' }, class: "btn btn-primary" %>
+						<h3> Price: <small class="text-info"> $<%= op.price %></small> </h3>
+						<h3> Number of renting days: <small class="text-info"> <%= order.rental_days %></small></h3>
+						<h3> Total Price: <small class="text-info"> <%= order.individual_cost %></small></h3>
+						<%= link_to '<i class="far fa-credit-card"></i> Place Order'.html_safe, root_path, class: 'btn btn-primary' %>
+						<%= link_to '<i class="fas fa-trash"></i> Delete'.html_safe, order_path(order.id), method: :delete, data: { confirm: 'Are you sure you want to delete this order?' }, class: "btn btn-primary" %>
 						<hr/>
 					<% end %>
 				<% end %>
