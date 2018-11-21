@@ -16,7 +16,7 @@
 				<p> <%= @product.meetup_location %>
 				<h3 style="font-size: 30px">Availability: </h1>
 				<% if @product.availability_status == true %>
-						<p class="text-success" style="font-size: 20px">Current have stock </p>
+						<p class="text-success" style="font-size: 20px">Currently have stock </p>
 				<% else %>
 						<p class="text-danger" style="font-size: 20px">Out of stock</p>
 				<%end%>
@@ -26,6 +26,10 @@
 			    	<%= link_to like_product_path(@product), method: :put, class: "btn btn-primary" do %>
 			    			<i class="fas fa-thumbs-up"></i>
 			    			<%= @product.get_upvotes.size %>
+			    	<% end %>
+			    	<%= link_to dislike_product_path(@product), method: :put, class: "btn btn-primary" do %>
+			    			<i class="fas fa-thumbs-down"></i>
+			    			<%= @product.get_downvotes.size %>
 			    	<% end %>
 			    <% else %>
 			    	<p>There is currently no stock available! Please check in later! </p>

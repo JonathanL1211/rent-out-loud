@@ -4,7 +4,7 @@
 			<% if @orders.blank? %>
 				<h1>No order was made</h1>
 			<% else %>
-				<h1 style="font-size: 40px"> Your orders: </h1>
+				<h1 style="font-size: 40px"> Your Orders: </h1>
 				<hr/>
 				<% @orders.each do |order|%>
 					<% order.products.each do |op| %>
