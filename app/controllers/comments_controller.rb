@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 #ArticlesController is inheriting from a special class called ApplicationController
+  before_action :authenticate_user!
   def index
     @product = Product.find(params[:product_id])
     @comments = Comment.where(product_id: @product.id)
