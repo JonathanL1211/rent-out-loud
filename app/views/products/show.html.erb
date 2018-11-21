@@ -40,7 +40,8 @@ data: { confirm: 'Are you sure you want to delete this?' }, class: "btn btn-prim
 	</div>
 	<div class="row">
 		<div class="col-sm-5 offset-sm-1 mt-4">
-			<h1>Something else</h1>
+			<h1>Comments</h1>
+			<%= link_to 'View all comments', product_comments_path(@product), class: "btn btn-primary" %>
 		</div>
 	</div>
 </div>
