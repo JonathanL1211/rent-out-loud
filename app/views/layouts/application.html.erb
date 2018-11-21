@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
 
   <body>
@@ -27,19 +28,19 @@
   	      	</li>
   	      <% else %>
   	      	<li class="nav-item">
-  	      		<%= link_to 'Cart', cart_path(current_user.id), class: 'nav-link'%>
+  	      			<%= link_to '<i class="fas fa-shopping-cart"></i> Cart'.html_safe, cart_path(current_user.id), class: 'nav-link'%>
   	      	</li>
   	      	<li>
-  	      		<%= link_to 'Products', products_path, class: 'nav-link'%>
+  	      		<%= link_to '<i class="fab fa-product-hunt"></i> Products'.html_safe, products_path, class: 'nav-link'%>
   	      	</li>
   	      	<li>
-  	      		<%= link_to 'My Profile', user_path(current_user.id), class: 'nav-link'%>
+  	      		<%= link_to '<i class="far fa-smile-wink"></i> Profile'.html_safe, user_path(current_user.id), class: 'nav-link'%>
   	      	</li>
   	      	<li>
-  	      		<%= link_to 'My Orders', orders_path, class: 'nav-link'%>
+  	      		<%= link_to '<i class="fas fa-file-invoice-dollar"></i> Orders'.html_safe, orders_path, class: 'nav-link'%>
   	      	</li>
   	      	<li>
-	  	      	<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'nav-link' %>
+	  	      	<%= link_to '<i class="fas fa-door-open"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'nav-link' %>
 	  	      </li>
   	      <% end %>
   	    </ul>
