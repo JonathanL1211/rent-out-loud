@@ -36,9 +36,11 @@ class ProductsController < ApplicationController
 
     params[:product][:product_image] = cloudnary_file['public_id']
     @product = Product.new(products_params)
-    @product.save!
+    @product.save
     if @product.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Product was successfully created.' }
+      end
     else
       render 'new'
     end

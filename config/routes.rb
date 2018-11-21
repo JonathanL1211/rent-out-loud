@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :products do
+    resources :comments
+  end
+
   resources :orders
 
   get '/cart/:id', to: 'cart#show', as: 'cart'
