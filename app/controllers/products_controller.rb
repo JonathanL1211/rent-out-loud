@@ -14,7 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+      if params[:term]
+        @products = Product.where('name LIKE ?', "%#{params[:term]}%")
+      else
+        @products = Product.all
+      end
   end
 
   def show
@@ -69,6 +73,6 @@ class ProductsController < ApplicationController
 
   private
   def products_params
-    params.require(:product).permit(:name, :description, :product_image, :price, :meetup_location, :availability_status, :user_id, :order_id => [])
+    params.require(:product).permit(:term, :name, :description, :product_image, :price, :meetup_location, :availability_status, :user_id, :order_id => [])
   end
 end
