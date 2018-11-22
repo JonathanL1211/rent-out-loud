@@ -16,10 +16,9 @@ class ChargesController < ApplicationController
       :description => 'Renting of board games',
       :currency    => 'usd'
     )
-
+    # @order.delete
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to root_path
   end
-
 end
