@@ -1,1 +1,11 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 mt-4">
+			<% @order.products.each do |op| %>
+				<h2>Thanks, you paid $<strong><%=@order.individual_cost%></strong> for <strong> <%= op.name %></strong></h2>
+
+				<p> Please keep in contact with the seller via the chat bot </p>
+			<% end %>
+		</div>
+	</div>
+</div>

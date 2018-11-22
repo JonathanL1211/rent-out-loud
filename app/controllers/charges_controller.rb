@@ -1,10 +1,12 @@
 class ChargesController < ApplicationController
   def create
     # Amount in cents
-    @amount = 500
+    @order = Order.find(params[:order_id])
+    @amount = (@order.individual_cost * 100).to_i.round(2)
+    @user = User.find(current_user.id)
 
     customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
+      :email => @user.email,
       :source  => params[:stripeToken]
     )
 
@@ -17,7 +19,7 @@ class ChargesController < ApplicationController
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-
     redirect_to root_path
   end
+
 end

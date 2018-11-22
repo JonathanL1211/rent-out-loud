@@ -21,9 +21,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :orders
-
-  resources :charges
+  resources :orders do
+    resources :charges
+  end
 
   get '/cart/:id', to: 'cart#show', as: 'cart'
   # resources :cart, only: [:show, :index, :create]

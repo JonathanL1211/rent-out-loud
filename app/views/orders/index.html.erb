@@ -13,7 +13,7 @@
 						<h3> Price: <small class="text-info"> $<%= op.price %></small> </h3>
 						<h3> Number of renting days: <small class="text-info"> <%= order.rental_days %></small></h3>
 						<h3> Total Price: <small class="text-info"> $<%= order.individual_cost %></small></h3>
-						<%= form_tag charges_path do %>
+						<%= form_tag order_charges_path(order.id) do %>
 						  <article>
 						    <% if flash[:error].present? %>
 						      <div id="error_explanation">
@@ -23,7 +23,7 @@
 						  </article>
 						  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 						          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-						          data-description="Renting of board games"
+						          data-description="Product name: <%= op.name %>"
 						          data-amount="<%= order.individual_cost * 100 %>"
 						          data-locale="auto"></script>
 						<% end %>
