@@ -82,5 +82,7 @@ gem 'acts_as_votable', '~> 0.12.0'
 
 gem 'activerecord-session_store'
 
+gem 'stripe'
+
 
 
