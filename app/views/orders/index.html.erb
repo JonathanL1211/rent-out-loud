@@ -10,7 +10,7 @@
 					<% if order.status === true %>
 						<% order.products.each do |op| %>
 							<h3> Name: <small class="text-info"> <%= op.name %></small> </h3>
-							<%= cl_image_tag(op.product_image, class: "img-fluid showPic") %>
+							<%= cl_image_tag(op.product_image, class: "img-fluid showPic profile") %>
 							<h3> Price: <small class="text-info"> $<%= op.price %></small> </h3>
 							<h3> Number of renting days: <small class="text-info"> <%= order.rental_days %></small></h3>
 							<h3> Total Price: <small class="text-info"> $<%= order.individual_cost %></small></h3>
@@ -28,6 +28,7 @@
 							          data-amount="<%= order.individual_cost * 100 %>"
 							          data-locale="auto"></script>
 							<% end %>
+							<br/>
 							<%= link_to '<i class="fas fa-trash"></i> Delete'.html_safe, order_path(order.id), method: :delete, data: { confirm: 'Are you sure you want to delete this order?' }, class: "btn btn-primary" %>
 							<hr/>
 						<% end %>

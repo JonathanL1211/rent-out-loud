@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-md-6 offset-md-1 mt-4">
+		<div class="col-sm-3 mt-4">
 			<h1 style="font-size: 40px"> Profile   <small><%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-primary' %></small> </h1>
 			<hr/>
 			<h3 style="font-size: 30px;"> Name: <small class="text-info"><%= @user.name %></small> </h3>
@@ -11,9 +11,9 @@
 	</div>
 </div>
 <hr/>
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-6 offset-sm-1">
+		<div class="col-sm-3 mt-4">
 			<h1 style="font-size: 40px;">My Products:
 					<span><%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %></span>
 			</h1>
@@ -21,7 +21,7 @@
 	</div>
 	<div class="row">
 			<% @product.each do |product| %>
-						<div class="col-sm-2 offset-sm-1 mr-3">
+						<div class="col-sm-3 mt-4">
 							<div class="card-group">
 								<div class="card">
 								  <%= cl_image_tag(product.product_image, class: "card-img-top img-fluid") %>
