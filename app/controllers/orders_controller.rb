@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     @order.individual_cost = ((@order.rental_days.to_f / 7) * @product.price).round(2)
     @order.save
 
-    # OrderMailer.new_order(@product).deliver_now
+    # OrderMailer.new_order(@product, current_user.id).deliver_now
     if @order.save
       @order.products << @product
       user_session["product"].delete(@product.id)
