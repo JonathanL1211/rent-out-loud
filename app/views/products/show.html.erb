@@ -7,13 +7,13 @@
 				<p> <%=@product.description%></p>
 		</div>
 
-		<div class="col-sm-3 mt-4 product-details" style="border: 1px solid black" >
+		<div class="col-sm-3 mt-4 product-details">
 				<h3 style="font-size: 30px">Supplier's name:</h1>
-				<p> <%=@user.name %></p>
+				<p style="font-size: 20px"> <%=@user.name %></p>
 				<h3 style="font-size: 30px">Price per week:</h1>
-				<p> <%=@product.price %></p>
+				<p style="font-size: 20px"> <%=@product.price %></p>
 				<h3 style="font-size: 30px">Preferred Location for Meetup: </h1>
-				<p> <%= @product.meetup_location %>
+				<p style="font-size: 20px"> <%= @product.meetup_location %>
 				<h3 style="font-size: 30px">Availability: </h1>
 				<% if @product.availability_status == true %>
 						<p class="text-success" style="font-size: 20px">Currently have stock </p>
