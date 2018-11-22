@@ -84,5 +84,4 @@ gem 'activerecord-session_store'
 
 gem 'stripe'
 
-
-
+gem 'geocoder'
