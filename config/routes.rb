@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :orders
 
+  resources :charges
+
   get '/cart/:id', to: 'cart#show', as: 'cart'
   # resources :cart, only: [:show, :index, :create]
   root 'home#index'
