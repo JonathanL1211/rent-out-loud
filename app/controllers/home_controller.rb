@@ -4,4 +4,8 @@ class HomeController < ApplicationController
     @products = Product.all.order(:cached_votes_up => :desc)
   end
 
+  def aboutUs
+
+  end
+
 end

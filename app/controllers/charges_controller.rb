@@ -18,6 +18,7 @@ class ChargesController < ApplicationController
       :description => 'Renting of board games',
       :currency    => 'sgd'
     )
+    redirect_to new_order_review_path(@order.id)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to root_path

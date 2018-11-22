@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-1 mt-4">
+			<h1> Give us feedback so we can improve <i class="far fa-smile-wink"></i></h1>
+			<%= form_with scope: :review, url: order_reviews_path(@order.id), local: true do |form| %>
+				<p>
+					<%= form.label :review, class: 'h3'%><br>
+					<%= form.text_field :content, class: 'form-control'%>
+				</p>
+				<p>
+					<%= form.hidden_field :order_id, value: @order.id %>
+					<%= form.submit :class => "btn btn-info"%>
+				</p>
+			<% end %>
+		</div>
+	</div>
+</div>

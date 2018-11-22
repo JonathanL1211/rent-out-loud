@@ -24,8 +24,12 @@ Rails.application.routes.draw do
   resources :orders do
     resources :charges
   end
+  resources :orders do
+    resources :reviews
+  end
 
   get '/cart/:id', to: 'cart#show', as: 'cart'
+  get '/AboutUs', to: 'home#aboutus'
   # resources :cart, only: [:show, :index, :create]
   root 'home#index'
 end
