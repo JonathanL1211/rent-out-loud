@@ -6,4 +6,7 @@ class Product < ActiveRecord::Base
   has_many :comments
 
   acts_as_votable
+
+  geocoded_by :meetup_location  # can also be an IP address
+  after_validation :geocode  # auto-fetch coordinates
 end

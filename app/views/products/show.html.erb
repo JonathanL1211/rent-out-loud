@@ -1,20 +1,20 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-8 mt-4" >
+		<div class="col-sm-6 mt-4" >
 				<h1 style="font-size: 40px"> Product: <%=@product.name %></h1>
-				<%= cl_image_tag(@product.product_image, class: "img-fluid showPic") %>
-				<h3> Product Description: </h3>
-				<p> <%=@product.description%></p>
-		</div>
-
-		<div class="col-sm-3 mt-4 product-details">
-				<h3 style="font-size: 30px">Supplier's name:</h1>
+				<%= cl_image_tag(@product.product_image, class: "img-fluid showPic profile") %>
+				<p style="border: 5px solid black; padding: 10px; border-radius: 10px; margin-top: 10px"> <%=@product.description%></p>
+				<h3 class="text-info" style="font-size: 30px">Supplier's name:</h3>
 				<p style="font-size: 20px"> <%=@user.name %></p>
-				<h3 style="font-size: 30px">Price per week:</h1>
+				<h3 class="text-info" style="font-size: 30px">Price per week:</h3>
 				<p style="font-size: 20px"> <%=@product.price %></p>
-				<h3 style="font-size: 30px">Preferred Location for Meetup: </h1>
-				<p style="font-size: 20px"> <%= @product.meetup_location %>
-				<h3 style="font-size: 30px">Availability: </h1>
+		</div>
+		<div class="col-sm-6 mt-4 product-details">
+				<h3 class="text-info" style="font-size: 30px">Preferred Location for Meetup: </h3>
+				<p style="font-size: 20px"> <%= @product.meetup_location %></p>
+				<div id="map"></div>
+				<br/>
+				<h3 class="text-info" style="font-size: 30px">Availability: </h3>
 				<% if @product.availability_status == true %>
 						<p class="text-success" style="font-size: 20px">Currently have stock </p>
 				<% else %>
@@ -40,12 +40,31 @@
 data: { confirm: 'Are you sure you want to delete this?' }, class: "btn btn-primary btn-xs" %>
 				<% end %>
 		</div>
+	<div class="col-sm-6 mt-4" >
+		<h1 style="font-size: 40px">Comments</h1>
+		<%= link_to 'View all comments', product_comments_path(@product), class: "btn btn-primary" %>
+		<p></p>
 	</div>
+
 	<div class="row">
-		<div class="col-sm-8 mt-4" >
-			<h1 style="font-size: 40px">Comments</h1>
-			<%= link_to 'View all comments', product_comments_path(@product), class: "btn btn-primary" %>
-			<p></p>
-		</div>
+
 	</div>
+  <script>
+	  var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat:<%= @product.latitude %>, lng:<%= @product.longitude %>},
+        zoom: 13
+      });
+
+		  var marker = new google.maps.Marker({
+		    position: {lat:<%= @product.latitude %>, lng:<%= @product.longitude %>},
+		    map: map,
+		    title: 'Hello World!'
+		  });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5XAE_t6YUsO_4vl-eitIVMmt2kgSmHjM&callback=initMap"
+  async defer>
+  </script>
 </div>

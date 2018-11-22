@@ -14,11 +14,11 @@
 	</div>
 	<div class="row">
 		<div class="col-md-10 offset-md-1 mt-4">
-			<h1> Create new comment</h1>
+			<h1> Say Something <i class="fas fa-comments"></i></h1>
 			<%= form_with scope: :comment, url:  product_comments_path, local: true do |form| %>
 				<p>
-					<%= form.label :content, class: 'h3' %><br>
-					<%= form.text_area :contents,cols: "100", rows: "5", class: 'form-control' %>
+					<br/>
+					<%= form.text_area :contents, cols: "50", rows: "5", class: 'form-control' %>
 				</p>
 				<p>
 					<%= form.hidden_field :user_id, value: current_user.id %>
